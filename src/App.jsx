@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import logoGaloImg from './assets/galobg.png';
 import segurancaImg from './assets/seguranca.jpg';
+import gov from './assets/gov.png';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import {
   ShieldAlert, Briefcase, X, HeartHandshake,
@@ -15,7 +16,7 @@ import {
 // --- 1. CONFIGURAÇÃO DE ATIVOS & TEMAS ---
 const ASSETS = {
   hero: "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&q=80&w=2000",
-  cidadania: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&q=80&w=1200",
+  cidadania: gov,
   seguranca: segurancaImg,
   producao: "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?auto=format&fit=crop&q=80&w=1200",
   inovacao: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200",

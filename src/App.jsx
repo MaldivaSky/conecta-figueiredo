@@ -118,7 +118,7 @@ export default function App() {
             onClick={() => document.getElementById('social').scrollIntoView({ behavior: 'smooth' })}
             className="w-full md:w-auto bg-white text-neutral-950 font-black py-6 px-12 rounded-[2rem] flex items-center justify-center gap-4 shadow-2xl hover:bg-emerald-500 hover:text-white transition-all text-lg"
           >
-            VER PLANO PARA A COMUNIDADE <ArrowRight size={24} />
+            VER PLANOS DE APOIO À COMUNIDADE <ArrowRight size={24} />
           </button>
         </motion.div>
       </header>

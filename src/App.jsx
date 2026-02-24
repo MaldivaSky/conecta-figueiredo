@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import logoGaloImg from './assets/galobg.png';
 import segurancaImg from './assets/seguranca.jpg';
 import gov from './assets/gov.png';
+// Importação do vídeo para garantir que o Webpack/Vite encontre o arquivo
+import heroVideo from './assets/hero1.mp4';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import {
   ShieldAlert, Briefcase, X, HeartHandshake,
@@ -15,7 +17,7 @@ import {
 
 // --- 1. CONFIGURAÇÃO DE ATIVOS & TEMAS ---
 const ASSETS = {
-  hero: "https://images.unsplash.com/photo-1590682680695-43b964a3ae17?auto=format&fit=crop&q=80&w=2000",
+  hero: heroVideo,
   cidadania: gov,
   seguranca: segurancaImg,
   producao: "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?auto=format&fit=crop&q=80&w=1200",
@@ -92,7 +94,6 @@ const ActionCard = ({ item, onClick }) => {
       whileHover={{ y: -10, scale: 1.01 }}
       className={`${item.grid} group relative min-h-[450px] rounded-[2.5rem] overflow-hidden cursor-pointer border border-emerald-900/20 shadow-2xl transition-all duration-500`}
     >
-      {/* Background Image Logic - Fix for Local Asset */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
         style={{
@@ -101,10 +102,8 @@ const ActionCard = ({ item, onClick }) => {
         }}
       />
 
-      {/* Overlay Gradient */}
       <div className={`absolute inset-0 bg-gradient-to-t from-[#050a08] via-[#050a08]/70 to-transparent group-hover:via-[#050a08]/40 transition-all duration-500`} />
 
-      {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-end p-8 md:p-12">
         <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white mb-6 shadow-xl group-hover:shadow-emerald-500/20 transition-all`}>
           {React.cloneElement(item.icon, { size: 28 })}
@@ -173,13 +172,11 @@ export default function App() {
       <MouseGlow />
       <FogParticles />
 
-      {/* Barra de Progresso Superior */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-emerald-500 z-[200] origin-left"
         style={{ scaleX: smoothProgress }}
       />
 
-      {/* NAVBAR SÊNIOR */}
       <nav className="fixed top-0 w-full z-[150] h-24 flex items-center px-6 md:px-12 justify-between backdrop-blur-md bg-[#030706]/80 border-b border-emerald-900/20">
         <div className="flex items-center gap-4 group">
           <div className="relative overflow-hidden rounded-full p-1 bg-emerald-500/20 group-hover:bg-emerald-500/40 transition-all">
@@ -205,7 +202,6 @@ export default function App() {
         </button>
       </nav>
 
-      {/* MENU FULLSCREEN COM TÓPICOS */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -253,12 +249,22 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* HERO SECTION */}
+      {/* HERO SECTION COM VÍDEO IMPLEMENTADO */}
       <header id="hero" className="relative min-h-screen flex items-center px-6 md:px-12 pt-24">
-        <div className="absolute inset-0 z-0">
-          <img src={ASSETS.hero} className="w-full h-full object-cover opacity-20 grayscale" alt="Background" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#030706] via-[#030706]/90 to-transparent" />
+        {/* INÍCIO DO BLOCO DE VÍDEO SOLICITADO */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-30 grayscale saturate-50"
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#030706] via-[#030706]/80 to-transparent" />
         </div>
+        {/* FIM DO BLOCO DE VÍDEO SOLICITADO */}
 
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <motion.div
@@ -292,7 +298,6 @@ export default function App() {
         </div>
       </header>
 
-      {/* SEÇÃO TRÍADE CSA */}
       <section id="section-0" className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="mb-20">
           <h2 className="text-5xl md:text-8xl font-black italic uppercase tracking-tighter mb-6">Tríade CSA</h2>
@@ -307,7 +312,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* PROJETOS TÉCNICOS */}
       <section id="section-1" className="py-32 bg-emerald-950/10 border-y border-emerald-900/10 px-6 md:px-12">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
           <div>
@@ -333,21 +337,17 @@ export default function App() {
           </div>
 
           <div className="relative group h-full">
-            {/* Efeito de Neon de Fundo */}
             <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-cyan-500/10 blur-[100px] rounded-full group-hover:opacity-100 opacity-50 transition-opacity" />
 
             <div className="relative bg-[#050a08]/90 backdrop-blur-xl p-10 md:p-14 rounded-[3.5rem] border border-emerald-900/30 h-full flex flex-col justify-between overflow-hidden shadow-2xl">
-
               <div>
                 <div className="flex justify-between items-start mb-8">
                   <BrainCircuit size={50} className="text-emerald-400" />
-                  {/* LOGOS DAS IAs - FLUTUANTES */}
                   <div className="flex gap-4">
                     <img src="https://claude.ai/favicon.ico" alt="Claude" className="w-8 h-8 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
                     <img src="https://chatgpt.com/favicon.ico" alt="ChatGPT" className="w-8 h-8 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
                     <img src="https://deepseek.com/favicon.ico" alt="DeepSeek" className="w-8 h-8 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
                     <img src="https://www.google.com/favicon.ico" alt="Gemini" className="w-8 h-8 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
-                    <img src="https://seedance2.ai/favicon.ico" alt="Seedance2" className="w-8 h-8 opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" />
                   </div>
                 </div>
 
@@ -360,10 +360,9 @@ export default function App() {
                 </p>
               </div>
 
-              {/* Badge de Workshop Integrada */}
               <div className="space-y-4">
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {['Gemini', 'GPT-4', 'DeepSeek', 'Claude', 'Seedance2'].map((ia) => (
+                  {['Gemini', 'GPT-4', 'DeepSeek', 'Claude'].map((ia) => (
                     <span key={ia} className="text-[9px] font-black border border-emerald-500/30 px-3 py-1 rounded-full text-emerald-500 uppercase">
                       {ia}
                     </span>
@@ -380,13 +379,12 @@ export default function App() {
                 </motion.div>
               </div>
 
-              {/* Elemento Decorativo: Linhas de Código decorativas ao fundo */}
               <div className="absolute -bottom-10 -right-10 opacity-5 pointer-events-none font-mono text-[10px] text-emerald-500">
                 <pre>
-                                    {`const smartCity = () => {
-                    integrate(IA, "Amazonas");
-                    empower(Citizens);
-                  }`}
+                  {`const smartCity = () => {
+  integrate(IA, "Amazonas");
+  empower(Citizens);
+}`}
                 </pre>
               </div>
             </div>
@@ -394,7 +392,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* FOOTER */}
       <footer className="py-24 px-6 md:px-12 border-t border-emerald-900/20 bg-[#020504]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
           <div className="max-w-md">
@@ -415,7 +412,6 @@ export default function App() {
         </div>
       </footer>
 
-      {/* WHATSAPP FLOAT */}
       <a
         href="https://wa.me/5511919889233"
         target="_blank"
@@ -424,7 +420,6 @@ export default function App() {
         <MessageCircle size={36} className="text-black group-hover:rotate-12 transition-transform" />
       </a>
 
-      {/* MODAL DETALHADO */}
       <AnimatePresence>
         {selected && (
           <motion.div

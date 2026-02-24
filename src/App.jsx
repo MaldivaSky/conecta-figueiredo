@@ -3,8 +3,9 @@ import {
   MessageCircle, ArrowRight, Zap, ShieldAlert,
   X, Fingerprint, Info
 } from 'lucide-react';
-<h1 className="text-6xl md:text-8xl font-black">
-  {import.meta.env.VITE_CONECTA_FIGUEIREDO}
+{/* Onde estava aquele código difícil, coloque apenas isso: */ }
+<h1 className="text-6xl md:text-8xl font-black text-emerald-600">
+  Conecta_Figueiredo
 </h1>
 
 // Componente do Logo: Galo da Serra em SVG para garantir nitidez total

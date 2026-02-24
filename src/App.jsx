@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
 import {
-  ShieldCheck, Landmark, Briefcase, Sparkles,
+   Landmark, Briefcase, Sparkles,
   MessageCircle, ArrowRight, Zap, ShieldAlert,
-  X, Mail, Fingerprint, Search, Info
+  X, Fingerprint, Info
 } from 'lucide-react';
+<h1 className="text-6xl md:text-8xl font-black">
+  {import.meta.env.VITE_CONECTA_FIGUEIREDO}
+</h1>
 
 // Componente do Logo: Galo da Serra em SVG para garantir nitidez total
 const LogoGaloDaSerra = () => (

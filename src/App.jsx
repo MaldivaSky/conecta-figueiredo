@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Landmark, ShieldAlert, Briefcase, Zap, X,
-  ArrowRight, Info, Users, HeartHandshake,
-  Smartphone, GraduationCap, ChevronRight, Mail, Sparkles,
+  Landmark, ShieldAlert, X,
+  ArrowRight,HeartHandshake,
+  GraduationCap, ChevronRight, Mail, Sparkles,
   Trees, Waves, Sprout, Map
 } from 'lucide-react';
 
@@ -112,7 +112,7 @@ export default function App() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-blue-400 to-white italic">Apoiar a Gente.</span>
           </h1>
           <p className="text-xl md:text-2xl text-neutral-400 font-medium max-w-2xl mb-14 leading-relaxed border-l-4 border-emerald-500 pl-8">
-            Das águas da Iracema ao asfalto da AM-010. Sou <strong>Rafael Paiva (IFSP)</strong> e vim usar meus 15 anos de estrada para garantir que a tecnologia seja o caminho da liberdade para cada cidadão de Figueiredo.
+            Dos prédios altos de São Paulo as florestas de Presidente Figueiredo. Sou <strong>Rafael Paiva (IFSP)</strong> e vim usar meus 15 anos de estrada para garantir que a tecnologia seja o caminho da liberdade para cada cidadão de Figueiredo.
           </p>
           <button
             onClick={() => document.getElementById('social').scrollIntoView({ behavior: 'smooth' })}
@@ -129,7 +129,7 @@ export default function App() {
           <div>
             <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-8 italic uppercase text-emerald-500">A Força do Nosso Chão</h2>
             <p className="text-lg md:text-xl text-neutral-400 font-bold leading-relaxed mb-10">
-              Presidente Figueiredo não é só código; é vida pulsando nas comunidades. Meu projeto vai até o pequeno produtor de cupuaçu e as famílias dos ramais para ensinar que o digital pode valorizar nosso trabalho e proteger nossas águas.
+              Presidente Figueiredo não é só cachoeiras; é vida pulsando nas comunidades. Meu projeto vai até o pequeno produtor de cupuaçu e as famílias dos ramais para ensinar que o digital pode valorizar nosso trabalho e proteger nossas águas.
             </p>
             <div className="grid grid-cols-2 gap-6 text-center">
               <div className="p-8 bg-[#0a0a0a] rounded-[2.5rem] border border-white/5 shadow-xl">

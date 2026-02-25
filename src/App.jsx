@@ -261,10 +261,10 @@ export default function App() {
                 {[
                   { t: 'Início', s: 'Visão Geral', id: 'hero' },
                   { t: 'Tríade CSA', s: 'Cidadania e Autonomia', id: 'section-0' },
-                  { t: 'Sistemas', s: 'Apps em Produção', id: 'section-1' },
+                  { t: 'Sistemas e Workshop', s: 'Apps em Produção', id: 'section-1' },
                   { t: 'Vozes', s: 'Testemunhos Reais', id: 'testemunhos' },
                   { t: 'Parceiros', s: 'Ecoturismo Rural', id: 'section-2' },
-                  { t: 'Oficina IA', s: 'Capacitação MEC', id: 'section-1' } // Adicionei o workshop aqui também
+                  { t: 'Contato', s: 'Whatsapp', id: 'contato' } 
                 ].map((item, i) => (
                   <motion.a
                     key={i}
@@ -580,8 +580,8 @@ export default function App() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full md:w-auto">
               <div className="flex flex-col gap-4"></div>
-              
-              <div className="flex flex-col gap-3">
+               
+              <div className="flex flex-col gap-3" id="contato">
                 <span className="text-emerald-500 font-black text-[10px] uppercase tracking-widest">Contato</span>
                 <a href="https://wa.me/5511919889233" className="text-xl font-bold hover:text-emerald-400 transition-colors italic uppercase">
                   <span><MessageCircle size={36} className="text-green group-hover:rotate-12 transition-transform" /></span>

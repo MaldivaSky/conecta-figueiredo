@@ -144,10 +144,11 @@ export default function App() {
   const workshopData = {
     id: 'workshop',
     tag: "Educação Digital",
-    title: "Engenharia de Prompts",
-    long: "Minha ideia é democratizar o uso da Inteligência Artificial. Não é sobre programação complexa, é sobre saber perguntar e criar prompts. O workshop foca em ensinar a população a usarem o celular para gerar ideias, organizar custos e criar anúncios usando ferramentas gratuitas como ChatGPT, Gemini e DeepSeek.",
+    title: "Engenharia de Prompts & EAD MEC",
+    long: "Minha proposta é criar uma rede de capacitação. Além do meu workshop presencial de IA, ou seja, Engenharia de Prompts e uso das principais ferramentas gratuitas como Gemini e DeepSeek. Também vou atuar como tutor e facilitador para que o cidadão acesse as plataformas do MEC e dos Institutos Federais. São milhares de cursos gratuitos com certificação oficial que o povo de Figueiredo muitas vezes não sabe como acessar ou concluir. Eu serei a ponte.",
     img: iaIMG,
-    color: "from-emerald-500 to-cyan-600"
+    color: "from-emerald-500 to-cyan-600",
+    isWorkshop: true // Marcador para personalizarmos o moda
   };
 
   const pillars = [
@@ -165,8 +166,8 @@ export default function App() {
     },
     {
       id: 'p3', tag: "Autonomia", title: "Renda com Marketplaces",
-      desc: "Vender Cupuaçu e Queijo para o Brasil via Internet.",
-      long: "Vou ensinar a usar a internet para vender insumos regionais para o mercado nacional. Tecnologia gerando dinheiro direto no bolso do produtor de Figueiredo.",
+      desc: "Vender Cupuaçu, Tucumã e outros insumos para o Brasil via Internet.",
+      long: "Vou ensinar a usar a internet tanto para comprar quanto para vender insumos regionais para o mercado nacional. Tecnologia gerando dinheiro direto no bolso do produtor de Figueiredo.",
       icon: <Sprout />, color: "from-green-600 to-emerald-900", grid: "lg:col-span-4 md:col-span-12", img: ASSETS.producao
     },
     {
@@ -177,7 +178,7 @@ export default function App() {
     },
     {
       id: 'p5', tag: "Social", title: "ID Digital Plena",
-      desc: "Gestão de e-mails e contas. Ninguém fica para trás.",
+      desc: "Crie uma conta no Google, crie e-mails e contas. Ninguém ficará para trás.",
       long: "Um e-mail perdido é uma porta fechada. Vou apoiar a gestão de contas digitais para garantir que o acesso aos serviços nunca pare.",
       icon: <Mail />, color: "from-teal-600 to-emerald-950", grid: "lg:col-span-4 md:col-span-12", img: ASSETS.hero
     }
@@ -234,7 +235,7 @@ export default function App() {
                   { t: 'Início', s: 'Acesso e Visão', id: 'hero' },
                   { t: 'Tríade CSA', s: 'Cidadania, Segurança, Autonomia', id: 'section-0' },
                   { t: 'Sistemas Reais', s: 'MercadinhoSys & IA', id: 'section-1' },
-                  { t: 'Ecoturismo Digital', s: 'Potencial da Terra', id: 'section-2' }
+                  { t: 'Conexão Local', s: 'Casinha do Amor & Workshop', id: 'section-2' } // Link atualizado
                 ].map((item, i) => (
                   <motion.a
                     key={i}
@@ -257,7 +258,9 @@ export default function App() {
               <div className="hidden md:flex flex-col justify-end items-end p-12 border-l border-emerald-900/20">
                 <div className="text-right">
                   <h4 className="text-6xl font-black italic mb-6">IFSP <span className="text-emerald-500">+</span><br />AMAZÔNIA</h4>
-                  <p className="text-neutral-400 max-w-sm">15 anos de mercado aplicados para destravar o futuro de Presidente Figueiredo.</p>
+                  <p className="text-neutral-400 max-w-sm">
+                    Tecnologia do IFSP aplicada para capacitar e proteger o cidadão de Presidente Figueiredo.
+                  </p>
                 </div>
               </div>
             </div>
@@ -300,7 +303,7 @@ export default function App() {
 
             <div className="grid md:grid-cols-2 gap-12 items-end">
               <p className="text-xl md:text-2xl text-neutral-300 font-medium leading-relaxed border-l-4 border-emerald-500 pl-8 italic">
-                A técnica do <strong>IFSP</strong> a serviço do povo. Minha missão é traduzir o digital para que cada cidadão de Figueiredo tenha autonomia real.
+                A técnica ensinada no <strong>Instituto Federal de SP</strong> a serviço do povo. Minha missão é traduzir e facilitar o digital para que cada cidadão de Figueiredo tenha autonomia real.
               </p>
               <div className="flex flex-wrap gap-2 justify-start md:justify-end">
                 {["Inclusão", "Segurança", "Autonomia", "IA"].map((t, i) => (
@@ -332,7 +335,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
           <div>
             <span className="text-emerald-500 font-black text-xs uppercase tracking-widest block mb-6">Impacto Local</span>
-            <h2 className="text-5xl md:text-7xl font-black italic uppercase leading-[0.9] mb-12">Sistemas <br />desenvolvidos por mim.</h2>
+            <h2 className="text-5xl md:text-7xl font-black italic uppercase leading-[0.74] mb-12">Sistemas <br />desenvolvidos por mim.</h2>
 
             <div className="space-y-6">
               {[
@@ -402,31 +405,34 @@ export default function App() {
               </div>
 
               <div className="space-y-4">
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {['Gemini', 'GPT-4', 'DeepSeek', 'Claude'].map((ia) => (
-                    <span key={ia} className="text-[9px] font-black border border-emerald-500/30 px-3 py-1 rounded-full text-emerald-500 uppercase">
-                      {ia}
-                    </span>
-                  ))}
-                </div>
-
                 <motion.div
-                  whileHover={{ x: 5 }}
-                  onClick={() => setSelected(workshopData)} // Aqui ele abre o modal
-                  className="flex items-center gap-4 p-5 bg-emerald-500 text-black rounded-2xl shadow-lg cursor-pointer"
+                  whileHover={{ x: 5, scale: 1.02 }}
+                  onClick={() => setSelected(workshopData)}
+                  className="relative overflow-hidden flex flex-col gap-2 p-6 bg-gradient-to-br from-emerald-500 to-emerald-600 text-black rounded-3xl shadow-xl cursor-pointer group"
                 >
-                  <Terminal size={24} />
-                  <span className="font-black text-xs uppercase tracking-tighter">Workshop: Engenharia de Prompts</span>
-                  <ArrowRight size={18} className="ml-auto" />
+                  <div className="flex items-center gap-4">
+                    <Terminal size={24} />
+                    <span className="font-black text-sm uppercase tracking-tighter">Workshop: Engenharia de Prompts</span>
+                    <ArrowRight size={18} className="ml-auto group-hover:translate-x-2 transition-transform" />
+                  </div>
+
+                  <div className="flex items-center gap-2 mt-2">
+                    <span className="px-3 py-1 bg-black text-emerald-500 text-[9px] font-black rounded-full animate-pulse">
+                      INSCRIÇÕES EM BREVE
+                    </span>
+                    <span className="text-[9px] font-bold text-black/70 uppercase">
+                      + Mentoria EAD MEC/IFSP
+                    </span>
+                  </div>
                 </motion.div>
               </div>
 
               <div className="absolute -bottom-10 -right-10 opacity-5 pointer-events-none font-mono text-[10px] text-emerald-500">
                 <pre>
                   {`const smartCity = () => {
-  integrate(IA, "Amazonas");
-  empower(Citizens);
-}`}
+                    integrate(IA, "Amazonas");
+                    empower(Citizens);
+                    protect(Direitos Digitais);}`}
                 </pre>
               </div>
             </div>
@@ -525,7 +531,7 @@ export default function App() {
 
           <div className="mt-20 pt-8 border-t border-emerald-900/10 text-center">
             <p className="text-[10px] font-bold text-neutral-600 uppercase tracking-[0.5em]">
-              Desenvolvido com Tecnologia IFSP & Alma Amazônica
+              Desenvolvido com Tecnologia IFSP & Alma Amazônica - Todos os direitos reservados © 2026
             </p>
           </div>
         </div>
@@ -569,7 +575,8 @@ export default function App() {
                 <p className="text-xl md:text-2xl text-neutral-300 italic leading-relaxed mb-12">
                   "{selected.long}"
                 </p>
-                <div className="p-8 bg-emerald-900/10 rounded-2xl border border-emerald-500/20">
+                
+                <div className="p-8 mt-4 bg-emerald-900/10 rounded-2xl border border-emerald-500/20">
                   <div className="flex items-center gap-4 text-emerald-400 font-black text-[10px] uppercase tracking-widest mb-4">
                     <CheckCircle2 size={16} /> Objetivo Técnico
                   </div>
@@ -577,6 +584,21 @@ export default function App() {
                     Implementação de protocolos de segurança e capacitação direta via workshops presenciais nos ramais e sede.
                   </p>
                 </div>
+
+                {selected.isWorkshop && (
+                  <div className="mt-8 p-6 border border-emerald-500/30 rounded-3xl bg-emerald-500/10 backdrop-blur-sm">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                      <span className="text-emerald-400 font-black text-[10px] uppercase tracking-widest">Inscrições em breve</span>
+                    </div>
+                    <button className="w-full py-4 bg-emerald-500 text-black font-black uppercase text-xs rounded-xl hover:bg-white hover:scale-[1.02] transition-all">
+                      Quero ser avisado da primeira turma
+                    </button>
+                    <p className="text-[9px] text-center text-neutral-500 mt-4 uppercase font-bold tracking-tighter">
+                      Parceria Técnica: Tutoria EAD - MEC / Institutos Federais
+                    </p>
+                  </div>
+                )}
               </div>
             </motion.div>
           </motion.div>

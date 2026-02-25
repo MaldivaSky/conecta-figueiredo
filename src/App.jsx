@@ -2,6 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import logoGaloImg from './assets/galobg.png';
 import segurancaImg from './assets/seguranca.jpg';
 import gov from './assets/gov.png';
+import casinhaImg from './assets/casinha-amor.png';
+import csaImg from './assets/csa.png';
+
+
 // Importação do vídeo para garantir que o Webpack/Vite encontre o arquivo
 import heroVideo from './assets/hero1.mp4';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
@@ -22,7 +26,9 @@ const ASSETS = {
   seguranca: segurancaImg,
   producao: "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?auto=format&fit=crop&q=80&w=1200",
   inovacao: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200",
-  logoGalo: logoGaloImg
+  logoGalo: logoGaloImg,
+  casinha: casinhaImg,
+  csa: csaImg
 };
 
 // --- 2. COMPONENTES DE EFEITO MASTER ---
@@ -392,22 +398,99 @@ export default function App() {
         </div>
       </section>
 
-      <footer className="py-24 px-6 md:px-12 border-t border-emerald-900/20 bg-[#020504]">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-          <div className="max-w-md">
-            <img src={ASSETS.logoGalo} alt="Logo" className="w-20 h-20 mb-8 rounded-full border-2 border-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.3)]" />
-            <h4 className="text-4xl font-black italic uppercase mb-4">Rafael Paiva</h4>
-            <p className="text-neutral-500 font-medium italic">
-              Formado pelo IFSP, residente em Presidente Figueiredo.
-              Tecnologia, Cidadania e Respeito.
+      {/* --- NOVA SEÇÃO: CASINHA DO AMOR --- */}
+      <section id="section-2" className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="group relative min-h-[500px] rounded-[3.5rem] overflow-hidden border border-emerald-500/20 shadow-2xl">
+          <div
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
+            style={{
+              backgroundImage: `url(${ASSETS.casinha})`,
+              filter: 'brightness(0.5)'
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#030706] via-[#030706]/60 to-transparent" />
+
+          <div className="relative z-10 h-full flex flex-col justify-center p-8 md:p-20 max-w-2xl">
+            <span className="text-emerald-400 font-black text-xs uppercase tracking-[0.4em] mb-6 block">
+              Conexão & Natureza
+            </span>
+            <h2 className="text-5xl md:text-7xl font-black italic uppercase leading-none mb-6">
+              Casinha do Amor <br />
+              <span className="text-2xl md:text-3xl text-emerald-500/80 block mt-2">Hostel & Hospedagem Rural</span>
+            </h2>
+            <p className="text-xl text-neutral-300 italic mb-8 leading-relaxed">
+              O lugar ideal para se conectar com a natureza e sentir a paz interior vibrar. Aqui, animais silvestres são seus vizinhos em uma experiência única de imersão amazônica.
             </p>
-          </div>
-          <div className="grid grid-cols-2 gap-12">
-            <div className="flex flex-col gap-4">
-              <span className="text-emerald-500 font-black text-[10px] uppercase tracking-widest">Contato</span>
-              <a href="https://wa.me/5511919889233" className="text-xl font-bold hover:text-emerald-400 transition-colors italic uppercase">WhatsApp</a>
-              <span className="text-neutral-500 text-sm">Presidente Figueiredo - AM</span>
+            <div className="flex gap-4">
+              <span className="px-6 py-3 rounded-full bg-emerald-500 text-black font-black text-[10px] uppercase tracking-widest">
+                Eco-Hospedagem - Ecoturismo - Presidente Figueiredo - AM
+              </span>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Casinha+do+Amor+-+Hospedagem+Rural+e+Glamping&query_place_id=ChIJOdkZ_ckDcpIRaNugEqZXQX8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-full bg-white/10 hover:bg-emerald-500 transition-colors group flex items-center justify-center"
+                title="Ver localização no Maps"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400 group-hover:text-black">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" />
+                </svg>
+              </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- FOOTER ATUALIZADO --- */}
+      <footer className="py-24 px-6 md:px-12 border-t border-emerald-900/20 bg-[#020504] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-16">
+
+            <div className="max-w-md">
+              <img src={ASSETS.logoGalo} alt="Logo" className="w-20 h-20 mb-8 rounded-full border-2 border-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.3)]" />
+              <h4 className="text-4xl font-black italic uppercase mb-4">Rafael Paiva</h4>
+              <p className="text-neutral-500 font-medium italic">
+                Formado pelo IFSP, residente em Presidente Figueiredo.
+                Tecnologia, Cidadania e Respeito.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full md:w-auto">
+              {/* Contato */}
+              <div className="flex flex-col gap-4">
+                <span className="text-emerald-500 font-black text-[10px] uppercase tracking-widest">Contato</span>
+                <a href="https://wa.me/5511919889233" className="text-xl font-bold hover:text-emerald-400 transition-colors italic uppercase">WhatsApp</a>
+                <span className="text-neutral-500 text-sm">Presidente Figueiredo - AM</span>
+              </div>
+
+              {/* Apoio - Agora com Logos */}
+              <div className="flex flex-col gap-6">
+                <span className="text-emerald-500 font-black text-[10px] uppercase tracking-widest">Apoio Estratégico</span>
+                <div className="flex flex-col gap-4">
+                  <div className="flex items-center gap-4 group">
+                    <img src={ASSETS.casinha} className="w-12 h-12 rounded-xl object-cover grayscale group-hover:grayscale-0 transition-all border border-emerald-900/30" alt="Casinha do Amor" />
+                    <div>
+                      <p className="text-xs font-black uppercase text-white">Casinha do Amor</p>
+                      <p className="text-[10px] text-neutral-500 uppercase">Hospedagem Rural</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4 group">
+                    <img src={ASSETS.csa} className="w-12 h-12 rounded-xl object-cover grayscale group-hover:grayscale-0 transition-all border border-emerald-900/30" alt="CSA" />
+                    <div>
+                      <p className="text-xs font-black uppercase text-white">CSA Figueiredo</p>
+                      <p className="text-[10px] text-neutral-500 uppercase">Comunidade que Sustenta a Agricultura</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="mt-20 pt-8 border-t border-emerald-900/10 text-center">
+            <p className="text-[10px] font-bold text-neutral-600 uppercase tracking-[0.5em]">
+              Desenvolvido com Tecnologia IFSP & Alma Amazônica
+            </p>
           </div>
         </div>
       </footer>

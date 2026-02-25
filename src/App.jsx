@@ -6,7 +6,7 @@ import casinhaImg from './assets/casinha-amor.png';
 import csaImg from './assets/csa.png';
 import iaIMG from './assets/ia-img.png';
 import idDigital from './assets/id-digital.png';
-
+import maldivas from './assets/rafael.jpeg';
 import ChatGrok from './ChatGrok';
 
 // Importação do vídeo para garantir que o Webpack/Vite encontre o arquivo
@@ -32,7 +32,8 @@ const ASSETS = {
   logoGalo: logoGaloImg,
   casinha: casinhaImg,
   csa: csaImg,
-  idDigital: idDigital
+  idDigital: idDigital,
+  maldivas: maldivas
 };
 
 // --- 2. COMPONENTES DE EFEITO MASTER ---
@@ -224,7 +225,7 @@ export default function App() {
             <img src={ASSETS.logoGalo} alt="Galo" className="w-12 h-12 object-cover rounded-full" />
           </div>
           <div className="flex flex-col">
-            <span className="font-black text-2xl tracking-tighter leading-none italic uppercase">Rafael Paiva</span>
+            <span className="font-black text-2xl tracking-tighter leading-none italic uppercase">Rafael Maldivas</span>
             <span className="text-[9px] font-bold text-emerald-500 uppercase tracking-[0.2em] mt-1">Presidente Figueiredo</span>
           </div>
         </div>
@@ -570,10 +571,12 @@ export default function App() {
           <div className="flex flex-col md:flex-row justify-between items-start gap-16">
 
             <div className="max-w-md">
-              <img src={ASSETS.logoGalo} alt="Logo" className="w-20 h-20 mb-8 rounded-full border-2 border-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.3)]" />
-              <h4 className="text-4xl font-black italic uppercase mb-4">Rafael Paiva</h4>
+              <img src={ASSETS.maldivas} alt="Logo" className="w-50 h-50 mb-3 rounded-full border-4 border-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.3)]" />
+              <h4 className="text-4xl font-black italic uppercase mb-4">Rafael Maldivas</h4>
               <p className="text-neutral-500 font-medium italic">
-                Formado pelo IFSP, residente em Presidente Figueiredo.
+                Formado pelo IFSP, atuo há 15 anos no mercado, residente e amante de Presidente Figueiredo.
+                <br />
+                Missão: democratizar o acesso digital, capacitar o cidadão e fortalecer a comunidade local.
                 Tecnologia, Cidadania e Respeito.
               </p>
             </div>
@@ -619,7 +622,7 @@ export default function App() {
 
           <div className="mt-20 pt-8 border-t border-emerald-900/10 text-center">
             <p className="text-[10px] font-bold text-neutral-600 uppercase tracking-[0.5em]">
-              Desenvolvido com Tecnologia IFSP & Alma Amazônica - Todos os direitos reservados © 2026
+              Desenvolvido por Maldivas.Tech & Alma Amazônica - Todos os direitos reservados © 2026
             </p>
           </div>
         </div>

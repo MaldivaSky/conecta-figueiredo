@@ -583,7 +583,7 @@ export default function App() {
                
               <div className="flex flex-col gap-3" id="contato">
                 <span className="text-emerald-500 font-black text-[10px] uppercase tracking-widest">Contato</span>
-                <a href="https://wa.me/5511919889233" className="text-xl font-bold hover:text-emerald-400 transition-colors italic uppercase">
+                <a href="https://wa.me/5511919889233" className="text-xl font-bold hover:text-emerald-400 transition-colors italic uppercase" target="_blank" rel="noopener noreferrer">
                   <span><MessageCircle size={36} className="text-green group-hover:rotate-12 transition-transform" /></span>
                 WhatsApp</a>
               </div>
@@ -598,7 +598,9 @@ export default function App() {
                   <div className="flex items-center gap-4 group">
                     <img src={ASSETS.casinha} className="w-12 h-12 rounded-xl object-cover grayscale group-hover:grayscale-0 transition-all border border-emerald-900/30" alt="Casinha do Amor" />
                     <div>
+                      <a href="https://wa.me/5514996363652" className="text-xl font-bold hover:text-emerald-400 transition-colors italic uppercase" target="_blank" rel="noopener noreferrer">
                       <p className="text-xs font-black uppercase text-white">Casinha do Amor</p>
+                      </a>
                       <p className="text-[10px] text-neutral-500 uppercase">Hospedagem Rural</p>
                     </div>
                   </div>

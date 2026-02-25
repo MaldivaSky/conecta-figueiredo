@@ -578,18 +578,23 @@ export default function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full md:w-auto">
-
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full md:w-auto">
+              <div className="flex flex-col gap-4"></div>
+              
+              <div className="flex flex-col gap-3">
+                <span className="text-emerald-500 font-black text-[10px] uppercase tracking-widest">Contato</span>
+                <a href="https://wa.me/5511919889233" className="text-xl font-bold hover:text-emerald-400 transition-colors italic uppercase">
+                  <span><MessageCircle size={36} className="text-green group-hover:rotate-12 transition-transform" /></span>
+                WhatsApp</a>
+              </div>
+              
+              
               {/* Apoio - Agora com Logos */}
               <div className="flex flex-col gap-6">
                 <span className="text-emerald-500 font-black text-[10px] uppercase tracking-widest">Apoio Estratégico</span>
                 <div className="flex flex-col gap-4">
                   {/* Contato */}
-              <div className="flex flex-col gap-4">
-                <span className="text-emerald-500 font-black text-[10px] uppercase tracking-widest">Contato</span>
-                <a href="https://wa.me/5511919889233" className="text-xl font-bold hover:text-emerald-400 transition-colors italic uppercase">WhatsApp</a>
-                    <span className="text-neutral-500 text-sm"><MessageCircle size={36} className="text-green group-hover:rotate-12 transition-transform" /></span>
-              </div>
+              
                   <div className="flex items-center gap-4 group">
                     <img src={ASSETS.casinha} className="w-12 h-12 rounded-xl object-cover grayscale group-hover:grayscale-0 transition-all border border-emerald-900/30" alt="Casinha do Amor" />
                     <div>

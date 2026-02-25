@@ -4,6 +4,7 @@ import segurancaImg from './assets/seguranca.jpg';
 import gov from './assets/gov.png';
 import casinhaImg from './assets/casinha-amor.png';
 import csaImg from './assets/csa.png';
+import iaIMG from './assets/ia-img.png';
 
 
 // Importação do vídeo para garantir que o Webpack/Vite encontre o arquivo
@@ -139,6 +140,15 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+
+  const workshopData = {
+    id: 'workshop',
+    tag: "Educação Digital",
+    title: "Engenharia de Prompts",
+    long: "Minha ideia é democratizar o uso da Inteligência Artificial. Não é sobre programação complexa, é sobre saber perguntar e criar prompts. O workshop foca em ensinar a população a usarem o celular para gerar ideias, organizar custos e criar anúncios usando ferramentas gratuitas como ChatGPT, Gemini e DeepSeek.",
+    img: iaIMG,
+    color: "from-emerald-500 to-cyan-600"
+  };
 
   const pillars = [
     {
@@ -326,18 +336,43 @@ export default function App() {
 
             <div className="space-y-6">
               {[
-                { title: "MercadinhoSys", icon: <Store />, desc: "Gestão para o produtor rural e comércio de ramal." },
-                { title: "Projeto Mise", icon: <Utensils />, desc: "Valorização e precificação de insumos amazônicos." }
+                {
+                  title: "MercadinhoSys",
+                  icon: <Store />,
+                  desc: "Gestão para o produtor rural e comércio de ramal.",
+                  url: "https://mercadinhosys.vercel.app/"
+                },
+                {
+                  title: "Projeto Mise",
+                  icon: <Utensils />,
+                  desc: "Valorização e precificação de insumos amazônicos.",
+                  url: "https://mise-app-gest-o-de-cozinha.vercel.app/"
+                }
               ].map((proj, i) => (
-                <div key={i} className="p-8 rounded-[2rem] bg-[#050a08] border border-emerald-900/30 flex gap-6 items-start hover:border-emerald-500 transition-all group">
+                <a
+                  key={i}
+                  href={proj.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-8 rounded-[2rem] bg-[#050a08] border border-emerald-900/30 flex gap-6 items-start hover:border-emerald-500 hover:bg-emerald-500/5 transition-all group block"
+                >
                   <div className="p-4 bg-emerald-500/10 rounded-2xl text-emerald-500 group-hover:bg-emerald-500 group-hover:text-black transition-all">
                     {proj.icon}
                   </div>
-                  <div>
-                    <h4 className="text-2xl font-black italic uppercase text-white mb-2">{proj.title}</h4>
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between mb-2">
+                      <h4 className="text-2xl font-black italic uppercase text-white group-hover:text-emerald-400 transition-colors">
+                        {proj.title}
+                      </h4>
+                      <ArrowRight size={18} className="text-emerald-500 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                    </div>
                     <p className="text-neutral-400">{proj.desc}</p>
+                    <div className="mt-4 flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="text-[10px] font-bold text-emerald-500/50 uppercase tracking-widest">Acesse o Sistema</span>
+                    </div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>
@@ -377,6 +412,7 @@ export default function App() {
 
                 <motion.div
                   whileHover={{ x: 5 }}
+                  onClick={() => setSelected(workshopData)} // Aqui ele abre o modal
                   className="flex items-center gap-4 p-5 bg-emerald-500 text-black rounded-2xl shadow-lg cursor-pointer"
                 >
                   <Terminal size={24} />
@@ -422,7 +458,7 @@ export default function App() {
               O lugar ideal para se conectar com a natureza e sentir a paz interior vibrar. Aqui, animais silvestres são seus vizinhos em uma experiência única de imersão amazônica.
             </p>
             <div className="flex gap-4">
-              <span className="px-6 py-3 rounded-full bg-emerald-500 text-black font-black text-[10px] uppercase tracking-widest">
+              <span className="px-6 py-3 rounded-full bg-emerald-500 text-black font-black text-[12px] uppercase tracking-widest text-balance">
                 Eco-Hospedagem - Ecoturismo - Presidente Figueiredo - AM
               </span>
               <a
@@ -432,7 +468,7 @@ export default function App() {
                 className="p-3 rounded-full bg-white/10 hover:bg-emerald-500 transition-colors group flex items-center justify-center"
                 title="Ver localização no Maps"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400 group-hover:text-black">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-400 group-hover:text-black">
                   <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" />
                 </svg>
               </a>

@@ -5,7 +5,7 @@ import gov from './assets/gov.png';
 import casinhaImg from './assets/casinha-amor.png';
 import csaImg from './assets/csa.png';
 import iaIMG from './assets/ia-img.png';
-
+import idDigital from './assets/id-digital.png';
 
 // Importação do vídeo para garantir que o Webpack/Vite encontre o arquivo
 import heroVideo from './assets/hero1.mp4';
@@ -29,7 +29,8 @@ const ASSETS = {
   inovacao: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200",
   logoGalo: logoGaloImg,
   casinha: casinhaImg,
-  csa: csaImg
+  csa: csaImg,
+  idDigital: idDigital
 };
 
 // --- 2. COMPONENTES DE EFEITO MASTER ---
@@ -180,7 +181,7 @@ export default function App() {
       id: 'p5', tag: "Social", title: "ID Digital Plena",
       desc: "Crie uma conta no Google, crie e-mails e contas. Ninguém ficará para trás.",
       long: "Um e-mail perdido é uma porta fechada. Vou apoiar a gestão de contas digitais para garantir que o acesso aos serviços nunca pare.",
-      icon: <Mail />, color: "from-teal-600 to-emerald-950", grid: "lg:col-span-4 md:col-span-12", img: ASSETS.hero
+      icon: <Mail />, color: "from-teal-1000 to-red-900", grid: "lg:col-span-4 md:col-span-12", img: ASSETS.idDigital
     }
   ];
 

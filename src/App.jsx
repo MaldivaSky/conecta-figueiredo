@@ -11,7 +11,7 @@ import idDigital from './assets/id-digital.png';
 import heroVideo from './assets/hero1.mp4';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import {
-  ShieldAlert, Briefcase, X, HeartHandshake,
+  ShieldAlert, Briefcase, X, HeartHandshake, Quote,
   GraduationCap, ChevronRight, Sparkles, Sprout,
   Map, CheckCircle2, MessageCircle, Zap,
   Database, Store, Utensils, BrainCircuit,
@@ -152,6 +152,27 @@ export default function App() {
     isWorkshop: true // Marcador para personalizarmos o moda
   };
 
+  const testimonials = [
+    {
+      name: "Dona Maria",
+      role: "Produtora Rural - Ramal da Cachoeira",
+      text: "Eu achava que o Gov.br era um bicho de sete cabeças. O Rafael me ensinou a usar o celular e hoje eu mesma resolvo minhas coisas do INSS sem precisar pagar ninguém.",
+      impact: "Autonomia Digital"
+    },
+    {
+      name: "Seu Mauro - Mercadinho 3 Irmãos",
+      role: "Comerciante - Comunidade Marcos Freire",
+      text: "O sistema que ele montou para o meu mercadinho mudou tudo. Agora eu sei exatamente o que tenho no estoque pelo celular. É a tecnologia chegando no interior.",
+      impact: "Gestão Real"
+    },
+    {
+      name: "Ariel Molina",
+      role: "Jovem Empreendedor - Comunidade Marcos Freire",
+      text: "O workshop de IA abriu minha mente. Eu não sabia que podia usar o Gemini para organizar meu plano de negócios. O Rafael explica de um jeito que a gente entende.",
+      impact: "Capacitação"
+    }
+  ];
+
   const pillars = [
     {
       id: 'p1', tag: "Cidadania", title: "Destravar o Gov.br",
@@ -223,46 +244,60 @@ export default function App() {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 150 }}
-            className="fixed inset-0 z-[140] bg-[#030706] flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[140] bg-[#030706]/98 backdrop-blur-2xl flex items-center justify-center p-6"
           >
-            <div className="grid md:grid-cols-2 w-full h-full max-w-7xl mx-auto p-12">
-              <div className="flex flex-col justify-center space-y-8">
-                <span className="text-emerald-500 font-black text-xs uppercase tracking-widest">Navegação Estratégica</span>
+            <div className="w-full max-w-6xl mx-auto flex flex-col justify-center h-full">
+              <span className="text-emerald-500 font-black text-[10px] uppercase tracking-[0.5em] mb-8 block border-l-2 border-emerald-500 pl-4">
+                Navegação Estratégica
+              </span>
+
+              {/* Grid de Itens: 1 coluna no mobile, 2 colunas no desktop */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 md:gap-y-8">
                 {[
-                  { t: 'Início', s: 'Acesso e Visão', id: 'hero' },
-                  { t: 'Tríade CSA', s: 'Cidadania, Segurança, Autonomia', id: 'section-0' },
-                  { t: 'Sistemas Reais', s: 'MercadinhoSys & IA', id: 'section-1' },
-                  { t: 'Conexão Local', s: 'Casinha do Amor & Workshop', id: 'section-2' } // Link atualizado
+                  { t: 'Início', s: 'Visão Geral', id: 'hero' },
+                  { t: 'Tríade CSA', s: 'Cidadania e Autonomia', id: 'section-0' },
+                  { t: 'Sistemas', s: 'Apps em Produção', id: 'section-1' },
+                  { t: 'Vozes', s: 'Testemunhos Reais', id: 'testemunhos' },
+                  { t: 'Parceiros', s: 'Ecoturismo Rural', id: 'section-2' },
+                  { t: 'Oficina IA', s: 'Capacitação MEC', id: 'section-1' } // Adicionei o workshop aqui também
                 ].map((item, i) => (
                   <motion.a
                     key={i}
                     href={`#${item.id}`}
                     onClick={() => setIsMenuOpen(false)}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="group flex flex-col"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    className="group flex flex-col border-b border-white/5 pb-4 hover:border-emerald-500/50 transition-all"
                   >
-                    <span className="text-4xl md:text-7xl font-black italic uppercase group-hover:text-emerald-500 transition-colors leading-none tracking-tighter">
-                      {item.t}
-                    </span>
-                    <span className="text-sm font-bold text-neutral-500 group-hover:text-white transition-colors ml-1">
+                    <div className="flex items-baseline gap-4">
+                      <span className="text-emerald-500 font-mono text-xs">0{i + 1}</span>
+                      <span className="text-3xl md:text-5xl font-black italic uppercase group-hover:text-emerald-400 transition-colors leading-[0.8] tracking-tighter">
+                        {item.t}
+                      </span>
+                    </div>
+                    <span className="text-[9px] font-bold text-neutral-500 group-hover:text-white transition-colors ml-10 uppercase tracking-widest mt-1">
                       {item.s}
                     </span>
                   </motion.a>
                 ))}
               </div>
-              <div className="hidden md:flex flex-col justify-end items-end p-12 border-l border-emerald-900/20">
-                <div className="text-right">
-                  <h4 className="text-6xl font-black italic mb-6">IFSP <span className="text-emerald-500">+</span><br />AMAZÔNIA</h4>
-                  <p className="text-neutral-400 max-w-sm">
-                    Tecnologia do IFSP aplicada para capacitar e proteger o cidadão de Presidente Figueiredo.
-                  </p>
+
+              {/* Rodapé do Menu mais compacto */}
+              <div className="mt-12 flex flex-col md:flex-row justify-between items-end md:items-center pt-8 border-t border-white/5 gap-4">
+                <div className="flex gap-4">
+                  <span className="text-[10px] font-black text-white/40 uppercase">IFSP + Amazonas</span>
+                  <span className="text-[10px] font-black text-white/40 uppercase">2024-2026</span>
                 </div>
+                <button
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-emerald-500 font-black text-xs uppercase tracking-widest hover:text-white transition-colors"
+                >
+                  [ Fechar Menu ]
+                </button>
               </div>
             </div>
           </motion.div>
@@ -437,6 +472,49 @@ export default function App() {
                 </pre>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="testemunhos" className="py-32 bg-gradient-to-b from-transparent to-emerald-950/10 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 text-center">
+            <span className="text-emerald-500 font-black text-xs uppercase tracking-[0.3em]">Resultados Reais</span>
+            <h2 className="text-4xl md:text-6xl font-black italic uppercase mt-4">Vozes da Mudança</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2 }}
+                className="p-8 rounded-[2.5rem] bg-[#050a08] border border-emerald-900/20 relative group hover:border-emerald-500/50 transition-all"
+              >
+                <Quote className="absolute top-6 right-8 text-emerald-500/10 group-hover:text-emerald-500/20 transition-colors" size={60} />
+
+                <div className="relative z-10">
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, star) => (
+                      <Sparkles key={star} size={12} className="text-emerald-500" />
+                    ))}
+                  </div>
+
+                  <p className="text-lg text-neutral-300 italic mb-8 leading-relaxed">
+                    "{t.text}"
+                  </p>
+
+                  <div className="border-t border-emerald-900/30 pt-6">
+                    <h4 className="font-black text-white uppercase italic">{t.name}</h4>
+                    <p className="text-xs text-neutral-500 font-bold uppercase tracking-tighter">{t.role}</p>
+                    <span className="inline-block mt-3 px-3 py-1 bg-emerald-500/10 text-emerald-500 text-[8px] font-black rounded-full uppercase">
+                      {t.impact}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
